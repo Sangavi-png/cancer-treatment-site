@@ -36,3 +36,7 @@ footer {
   padding: 20px;
   background-color: #eee;
 }
+body {
+  font-family: 'Roboto', sans-serif;
+  background: linear-gradient(to right, #f0f4f7, #d9e2ec);
+}
