@@ -1,91 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>Cancer Treatment Center</title>
+  <title>Personalized Cancer Treatment</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-  <!-- Navigation -->
-  <nav>
-    <h1>CancerCare</h1>
-    <ul>
-      <li><a href="#home">Home</a></li>
-      <li><a href="#treatments">Treatments</a></li>
-      <li><a href="#suggestion">Find Treatment</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
-
-  <!-- Hero Section -->
-  <section id="home" class="hero">
-    <h2>Compassionate Cancer Care</h2>
-    <p>We provide personalized treatment plans and support for every patient.</p>
-  </section>
-
-  <!-- Treatments Section -->
-  <section id="treatments" class="treatments">
-    <h2>Our Treatments</h2>
-    <div class="cards">
-      <div class="card">
-        <h3>Chemotherapy</h3>
-        <p>Targeted drugs to destroy cancer cells.</p>
-      </div>
-      <div class="card">
-        <h3>Radiation Therapy</h3>
-        <p>High-energy rays to shrink tumors.</p>
-      </div>
-      <div class="card">
-        <h3>Immunotherapy</h3>
-        <p>Boosting your immune system to fight cancer.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Suggestion Form -->
-  <section id="suggestion" class="suggestion">
-    <h2>Find a Suggested Treatment</h2>
-    <label for="cancerType">Enter Cancer Type:</label>
-    <input type="text" id="cancerType" placeholder="e.g. Lung, Breast, Skin">
-    <button onclick="suggestTreatment()">Suggest Treatment</button>
-    <p id="result"></p>
-  </section>
-
-  <!-- Contact Section -->
-  <section id="contact" class="contact">
-    <h2>Contact Us</h2>
-    <p>Email: care@cancertreatment.org</p>
-    <p>Phone: +91 98765 43210</p>
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 CancerCare Center. All rights reserved.</p>
-  </footer>
-
-  <!-- JavaScript -->
-  <script>
-    function suggestTreatment() {
-      const input = document.getElementById("cancerType").value.toLowerCase();
-      const result = document.getElementById("result");
-
-      let treatment = "";
-
-      if (input.includes("lung")) {
-        treatment = "Suggested: Chemotherapy and Radiation Therapy";
-      } else if (input.includes("breast")) {
-        treatment = "Suggested: Surgery followed by Hormone Therapy";
-      } else if (input.includes("skin")) {
-        treatment = "Suggested: Immunotherapy or Targeted Therapy";
-      } else {
-        treatment = "Please consult a specialist for personalized options.";
-      }
-
-      result.textContent = treatment;
-    }
-  </script>
-
+  <h1>Welcome to Cancer Treatment Planner</h1>
+  <p>Get personalized treatment suggestions using machine learning.</p>
+  <a href="form.html">Start Assessment</a>
 </body>
 </html>
-    
