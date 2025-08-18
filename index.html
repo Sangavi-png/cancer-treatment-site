@@ -7,12 +7,13 @@
 </head>
 <body>
 
-  <!-- Navigation Bar -->
+  <!-- Navigation -->
   <nav>
     <h1>CancerCare</h1>
     <ul>
       <li><a href="#home">Home</a></li>
       <li><a href="#treatments">Treatments</a></li>
+      <li><a href="#suggestion">Find Treatment</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
@@ -42,6 +43,15 @@
     </div>
   </section>
 
+  <!-- Suggestion Form -->
+  <section id="suggestion" class="suggestion">
+    <h2>Find a Suggested Treatment</h2>
+    <label for="cancerType">Enter Cancer Type:</label>
+    <input type="text" id="cancerType" placeholder="e.g. Lung, Breast, Skin">
+    <button onclick="suggestTreatment()">Suggest Treatment</button>
+    <p id="result"></p>
+  </section>
+
   <!-- Contact Section -->
   <section id="contact" class="contact">
     <h2>Contact Us</h2>
@@ -54,5 +64,28 @@
     <p>&copy; 2025 CancerCare Center. All rights reserved.</p>
   </footer>
 
+  <!-- JavaScript -->
+  <script>
+    function suggestTreatment() {
+      const input = document.getElementById("cancerType").value.toLowerCase();
+      const result = document.getElementById("result");
+
+      let treatment = "";
+
+      if (input.includes("lung")) {
+        treatment = "Suggested: Chemotherapy and Radiation Therapy";
+      } else if (input.includes("breast")) {
+        treatment = "Suggested: Surgery followed by Hormone Therapy";
+      } else if (input.includes("skin")) {
+        treatment = "Suggested: Immunotherapy or Targeted Therapy";
+      } else {
+        treatment = "Please consult a specialist for personalized options.";
+      }
+
+      result.textContent = treatment;
+    }
+  </script>
+
 </body>
 </html>
+    
