@@ -10,7 +10,4 @@
 </select>
 
 <br><br>
-<button onclick="showHospitals()">Find Hospitals</button>
-
-<div id="hospitalResults"></div>
-<script src="script.js"></script>
+<button oncli
