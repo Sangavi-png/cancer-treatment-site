@@ -1,12 +1,29 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Personalized Cancer Treatment</title>
+  <meta charset="UTF-8">
+  <title>Cancer Treatment & Hospital Finder</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Welcome to Cancer Treatment Planner</h1>
-  <p>Get personalized treatment suggestions using machine learning.</p>
-  <a href="form.html">Start Assessment</a>
+  <h2>Cancer Treatment & Hospital Finder</h2>
+
+  <form id="cancerForm">
+    <label for="cancerType">Select Cancer Type:</label>
+    <select id="cancerType" name="cancerType">
+      <option value="">--Choose--</option>
+      <option value="breast">Breast Cancer</option>
+      <option value="lung">Lung Cancer</option>
+      <option value="colon">Colon Cancer</option>
+      <option value="leukemia">Leukemia</option>
+    </select>
+
+    <button type="submit">Get Suggestions</button>
+  </form>
+
+  <div id="results"></div>
+
+  <script src="hospital-finder.js"></script>
+  <script src="form-handler.js"></script>
 </body>
 </html>
