@@ -2,41 +2,57 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Personalized Cancer Treatment</title>
-  <link rel="stylesheet" href="styles.css">
+  <title>Cancer Treatment Center</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <section id="welcome">
-    <h1>Personalized Treatment Plans</h1>
-    <p>Empowering cancer patients and caregivers with tailored care options.</p>
+
+  <!-- Navigation Bar -->
+  <nav>
+    <h1>CancerCare</h1>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#treatments">Treatments</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <h2>Compassionate Cancer Care</h2>
+    <p>We provide personalized treatment plans and support for every patient.</p>
   </section>
 
-  <section id="planner">
-    <h2>Treatment Planner</h2>
-    <form>
-      <label for="cancerType">Cancer Type:</label>
-      <input type="text" id="cancerType" name="cancerType"><br>
-
-      <label for="stage">Stage:</label>
-      <input type="text" id="stage" name="stage"><br>
-
-      <label for="age">Age:</label>
-      <input type="number" id="age" name="age"><br>
-
-      <label for="history">Medical History:</label>
-      <textarea id="history" name="history"></textarea><br>
-
-      <button type="submit">Get Suggestions</button>
-    </form>
+  <!-- Treatments Section -->
+  <section id="treatments" class="treatments">
+    <h2>Our Treatments</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Chemotherapy</h3>
+        <p>Targeted drugs to destroy cancer cells.</p>
+      </div>
+      <div class="card">
+        <h3>Radiation Therapy</h3>
+        <p>High-energy rays to shrink tumors.</p>
+      </div>
+      <div class="card">
+        <h3>Immunotherapy</h3>
+        <p>Boosting your immune system to fight cancer.</p>
+      </div>
+    </div>
   </section>
 
+  <!-- Contact Section -->
+  <section id="contact" class="contact">
+    <h2>Contact Us</h2>
+    <p>Email: care@cancertreatment.org</p>
+    <p>Phone: +91 98765 43210</p>
+  </section>
+
+  <!-- Footer -->
   <footer>
-    <p>Created by [we three] | GitHub: [link]</p>
+    <p>&copy; 2025 CancerCare Center. All rights reserved.</p>
   </footer>
 
-  
-<img src="https://example.com/banner.jpg" alt="Cancer Care Banner" style="width:100%;">
-<section id="resources">
-  <h2>Understanding Cancer Types</h2>
-  <p>Learn about common types like breast, lung, prostate, and colorectal cancer.</p>
-</section>
+</body>
+</html>
