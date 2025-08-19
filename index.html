@@ -3,25 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cancer Treatment Planner</title>
+  <title>Personalized Cancer Treatment Planner</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <h1>Personalized Cancer Treatment Planner</h1>
 
   <form id="mainForm">
-    <label for="cancerType">Cancer Type:</label>
-    <select id="cancerType" required>
-      <option value="">--Select--</option>
-      <option value="breast">Breast Cancer</option>
-      <option value="lung">Lung Cancer</option>
-      <option value="colon">Colon Cancer</option>
-      <option value="leukemia">Leukemia</option>
-    </select>
+    <label for="cancerType">Enter Cancer Type:</label>
+    <input type="text" id="cancerType" placeholder="e.g. breast, lung, colon" required />
 
     <label for="stage">Cancer Stage:</label>
     <select id="stage" required>
-      <option value="">--Select--</option>
+      <option value="">--Select Stage--</option>
       <option value="early">Early</option>
       <option value="mid">Mid</option>
       <option value="advanced">Advanced</option>
@@ -35,8 +29,8 @@
 
   <div id="results"></div>
 
-  <script src="hospital.js" defer></script>
-  <script src="form.js" defer></script>
+  <script src="hospitalHandler.js" defer></script>
+  <script src="formHandler.js" defer></script>
   <script src="script.js" defer></script>
 </body>
 </html>
