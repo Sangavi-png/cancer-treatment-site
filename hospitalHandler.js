@@ -8,4 +8,3 @@ function getHospitalsByType(type) {
 
   return hospitalData[type] || ["General Oncology Center"];
 }
-    
