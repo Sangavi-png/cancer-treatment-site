@@ -1,59 +1,47 @@
-// Cancer data: treatment suggestions + hospital names
-const cancerData = {
-  breast: {
-    treatment: "Common treatments include surgery, radiation therapy, chemotherapy, and hormone therapy.",
-    hospitals: [
-      "Tata Memorial Hospital, Mumbai",
-      "AIIMS, Delhi",
-      "Adyar Cancer Institute, Chennai"
-    ]
-  },
-  lung: {
-    treatment: "Treatment may involve surgery, chemotherapy, targeted therapy, and immunotherapy.",
-    hospitals: [
-      "Apollo Hospitals, Chennai",
-      "Fortis Memorial Research Institute, Gurgaon",
-      "Manipal Hospital, Bangalore"
-    ]
-  },
-  colon: {
-    treatment: "Surgery is often the first step, followed by chemotherapy or radiation depending on the stage.",
-    hospitals: [
-      "Christian Medical College, Vellore",
-      "Kokilaben Hospital, Mumbai",
-      "Max Super Specialty Hospital, Delhi"
-    ]
-  },
-  leukemia: {
-    treatment: "Chemotherapy is the main treatment, sometimes combined with stem cell transplant or targeted therapy.",
-    hospitals: [
-      "Rajiv Gandhi Cancer Institute, Delhi",
-      "Kidwai Memorial Institute of Oncology, Bangalore",
-      "HCG Cancer Centre, Ahmedabad"
-    ]
-  }
-};
+document.getElementById("mainForm").addEventListener("submit", function(event) {
+  event.preventDefault();
 
-// Handle form submission
-document.getElementById("cancerForm").addEventListener("submit", function(event) {
-  event.preventDefault(); // Prevent page reload
-
-  const type = document.getElementById("cancerType").value;
+  const cancerType = document.getElementById("cancerType").value;
+  const stage = document.getElementById("stage").value;
+  const age = parseInt(document.getElementById("age").value);
   const resultsDiv = document.getElementById("results");
 
-  if (cancerData[type]) {
-    const treatment = cancerData[type].treatment;
-    const hospitalList = cancerData[type].hospitals
-      .map(hospital => `<li>${hospital}</li>`)
-      .join("");
-
-    resultsDiv.innerHTML = `
-      <h3>Treatment Suggestion:</h3>
-      <p>${treatment}</p>
-      <h3>Recommended Hospitals:</h3>
-      <ul>${hospitalList}</ul>
-    `;
-  } else {
-    resultsDiv.innerHTML = `<p>Please select a valid cancer type.</p>`;
+  if (!cancerType || !stage || isNaN(age)) {
+    resultsDiv.innerHTML = `<p>Please fill out all fields correctly.</p>`;
+    return;
   }
+
+  let treatment = "";
+
+  // Treatment logic based on cancer type and stage
+  if (cancerType === "breast") {
+    treatment = stage === "early" ? "Surgery + Hormone Therapy" : "Chemotherapy + Targeted Therapy";
+  } else if (cancerType === "lung") {
+    treatment = stage === "early" ? "Surgery + Radiation" : "Chemotherapy + Immunotherapy";
+  } else if (cancerType === "colon") {
+    treatment = stage === "early" ? "Surgery + Monitoring" : "Chemotherapy + Radiation";
+  } else if (cancerType === "leukemia") {
+    treatment = stage === "early" ? "Targeted Therapy + Monitoring" : "Bone Marrow Transplant + Chemotherapy";
+  }
+
+  // Age-based adjustment
+  if (age < 18) {
+    treatment += " (Pediatric oncology recommended)";
+  } else if (age >= 18 && age <= 40) {
+    treatment += " (Consider fertility preservation)";
+  } else if (age > 40 && age <= 65) {
+    treatment += " (Standard protocols apply)";
+  } else {
+    treatment += " (Geriatric oncology consultation advised)";
+  }
+
+  const hospitals = getHospitalsByType(cancerType);
+  const hospitalList = hospitals.map(h => `<li>${h}</li>`).join("");
+
+  resultsDiv.innerHTML = `
+    <h3>Treatment Suggestion:</h3>
+    <p>${treatment}</p>
+    <h3>Recommended Hospitals:</h3>
+    <ul>${hospitalList}</ul>
+  `;
 });
