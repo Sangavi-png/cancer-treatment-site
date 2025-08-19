@@ -1,26 +1,42 @@
-<form id="cancerForm">
-  <label for="cancerType">Cancer Type:</label>
-  <select id="cancerType">
-    <option value="">--Choose--</option>
-    <option value="breast">Breast Cancer</option>
-    <option value="lung">Lung Cancer</option>
-    <option value="colon">Colon Cancer</option>
-    <option value="leukemia">Leukemia</option>
-  </select>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cancer Treatment Planner</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>Personalized Cancer Treatment Planner</h1>
 
-  <label for="stage">Cancer Stage:</label>
-  <select id="stage">
-    <option value="">--Choose--</option>
-    <option value="early">Early</option>
-    <option value="mid">Mid</option>
-    <option value="advanced">Advanced</option>
-  </select>
+  <form id="mainForm">
+    <label for="cancerType">Cancer Type:</label>
+    <select id="cancerType" required>
+      <option value="">--Select--</option>
+      <option value="breast">Breast Cancer</option>
+      <option value="lung">Lung Cancer</option>
+      <option value="colon">Colon Cancer</option>
+      <option value="leukemia">Leukemia</option>
+    </select>
 
-  <label for="age">Patient Age:</label>
-  <input type="number" id="age" min="1" max="120" />
+    <label for="stage">Cancer Stage:</label>
+    <select id="stage" required>
+      <option value="">--Select--</option>
+      <option value="early">Early</option>
+      <option value="mid">Mid</option>
+      <option value="advanced">Advanced</option>
+    </select>
 
-  <button type="submit">Get Suggestions</button>
-</form>
+    <label for="age">Patient Age:</label>
+    <input type="number" id="age" min="1" max="120" required />
 
-<div id="results"></div>
-  
+    <button type="submit">Get Suggestions</button>
+  </form>
+
+  <div id="results"></div>
+
+  <script src="hospital.js" defer></script>
+  <script src="form.js" defer></script>
+  <script src="script.js" defer></script>
+</body>
+</html>
