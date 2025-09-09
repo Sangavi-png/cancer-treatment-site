@@ -14,10 +14,7 @@
     <label for="cancerType">Enter Cancer Type:</label>
     <input type="text" id="cancerType" placeholder="e.g. breast, lung, colon" required />
 
-    <label for="symptoms">Enter Symptoms:</label>
-    <textarea id="symptoms" rows="3" placeholder="e.g. fatigue, weight loss, cough" required></textarea>
-
-    <label for="stage">Cancer Stage (1 to 6):</label>
+    <label for="stage">Cancer Stage:</label>
     <select id="stage" required>
       <option value="">--Select Stage--</option>
       <option value="1">Stage 1</option>
@@ -37,6 +34,7 @@
   <div id="results"></div>
 
   <script src="hospitalHandler.js" defer></script>
+  <script src="symptomHandler.js" defer></script>
   <script src="formHandler.js" defer></script>
   <script src="script.js" defer></script>
 </body>
