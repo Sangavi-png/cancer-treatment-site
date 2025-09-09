@@ -1,4 +1,3 @@
-
 document.getElementById("mainForm").addEventListener("submit", function(event) {
   event.preventDefault();
 
@@ -11,20 +10,47 @@ document.getElementById("mainForm").addEventListener("submit", function(event) {
 
   let treatment = "";
 
-  // Treatment logic based on cancer type and stage
   switch (formData.cancerType) {
     case "breast":
-      treatment = formData.stage === "early" ? "Surgery + Hormone Therapy" : "Chemotherapy + Targeted Therapy";
+      if (formData.stage <= 2) {
+        treatment = "Lumpectomy + Hormone Therapy";
+      } else if (formData.stage <= 4) {
+        treatment = "Mastectomy + Chemotherapy";
+      } else {
+        treatment = "Advanced Chemotherapy + Targeted Therapy";
+      }
       break;
+
     case "lung":
-      treatment = formData.stage === "early" ? "Surgery + Radiation" : "Chemotherapy + Immunotherapy";
+      if (formData.stage <= 2) {
+        treatment = "Surgery + Radiation";
+      } else if (formData.stage <= 4) {
+        treatment = "Chemotherapy + Immunotherapy";
+      } else {
+        treatment = "Palliative Care + Targeted Therapy";
+      }
       break;
+
     case "colon":
-      treatment = formData.stage === "early" ? "Surgery + Monitoring" : "Chemotherapy + Radiation";
+      if (formData.stage <= 2) {
+        treatment = "Surgery + Monitoring";
+      } else if (formData.stage <= 4) {
+        treatment = "Chemotherapy + Radiation";
+      } else {
+        treatment = "Advanced Chemotherapy + Supportive Care";
+      }
       break;
+
     case "leukemia":
-      treatment = formData.stage === "early" ? "Targeted Therapy + Monitoring" : "Bone Marrow Transplant + Chemotherapy";
+      if (formData.stage <= 2) {
+        treatment = "Targeted Therapy + Monitoring";
+      } else if (formData.stage <= 4) {
+        treatment = "Chemotherapy + Immunotherapy";
+      } else {
+        treatment = "Bone Marrow Transplant + Intensive Care";
+      }
       break;
+
     default:
       treatment = "Consult an oncologist for a personalized treatment plan.";
   }
@@ -40,13 +66,15 @@ document.getElementById("mainForm").addEventListener("submit", function(event) {
     treatment += " (Geriatric oncology consultation advised)";
   }
 
-  const hospitals = getHospitalsByType(formData.cancerType);
+  const hospitals = getTNHospitalsByType(formData.cancerType);
   const hospitalList = hospitals.map(h => `<li>${h}</li>`).join("");
 
   document.getElementById("results").innerHTML = `
+    <h3>Entered Symptoms:</h3>
+    <p>${formData.symptoms}</p>
     <h3>Treatment Suggestion:</h3>
     <p>${treatment}</p>
-    <h3>Recommended Hospitals:</h3>
+    <h3>Recommended Hospitals in Tamil Nadu:</h3>
     <ul>${hospitalList}</ul>
   `;
 });
