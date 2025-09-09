@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,12 +14,18 @@
     <label for="cancerType">Enter Cancer Type:</label>
     <input type="text" id="cancerType" placeholder="e.g. breast, lung, colon" required />
 
-    <label for="stage">Cancer Stage:</label>
+    <label for="symptoms">Enter Symptoms:</label>
+    <textarea id="symptoms" rows="3" placeholder="e.g. fatigue, weight loss, cough" required></textarea>
+
+    <label for="stage">Cancer Stage (1 to 6):</label>
     <select id="stage" required>
       <option value="">--Select Stage--</option>
-      <option value="early">Early</option>
-      <option value="mid">Mid</option>
-      <option value="advanced">Advanced</option>
+      <option value="1">Stage 1</option>
+      <option value="2">Stage 2</option>
+      <option value="3">Stage 3</option>
+      <option value="4">Stage 4</option>
+      <option value="5">Stage 5</option>
+      <option value="6">Stage 6</option>
     </select>
 
     <label for="age">Patient Age:</label>
