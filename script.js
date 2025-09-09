@@ -12,43 +12,27 @@ document.getElementById("mainForm").addEventListener("submit", function(event) {
 
   switch (formData.cancerType) {
     case "breast":
-      if (formData.stage <= 2) {
-        treatment = "Lumpectomy + Hormone Therapy";
-      } else if (formData.stage <= 4) {
-        treatment = "Mastectomy + Chemotherapy";
-      } else {
-        treatment = "Advanced Chemotherapy + Targeted Therapy";
-      }
+      treatment = formData.stage <= 2 ? "Lumpectomy + Hormone Therapy"
+                : formData.stage <= 4 ? "Mastectomy + Chemotherapy"
+                : "Advanced Chemotherapy + Targeted Therapy";
       break;
 
     case "lung":
-      if (formData.stage <= 2) {
-        treatment = "Surgery + Radiation";
-      } else if (formData.stage <= 4) {
-        treatment = "Chemotherapy + Immunotherapy";
-      } else {
-        treatment = "Palliative Care + Targeted Therapy";
-      }
+      treatment = formData.stage <= 2 ? "Surgery + Radiation"
+                : formData.stage <= 4 ? "Chemotherapy + Immunotherapy"
+                : "Palliative Care + Targeted Therapy";
       break;
 
     case "colon":
-      if (formData.stage <= 2) {
-        treatment = "Surgery + Monitoring";
-      } else if (formData.stage <= 4) {
-        treatment = "Chemotherapy + Radiation";
-      } else {
-        treatment = "Advanced Chemotherapy + Supportive Care";
-      }
+      treatment = formData.stage <= 2 ? "Surgery + Monitoring"
+                : formData.stage <= 4 ? "Chemotherapy + Radiation"
+                : "Advanced Chemotherapy + Supportive Care";
       break;
 
     case "leukemia":
-      if (formData.stage <= 2) {
-        treatment = "Targeted Therapy + Monitoring";
-      } else if (formData.stage <= 4) {
-        treatment = "Chemotherapy + Immunotherapy";
-      } else {
-        treatment = "Bone Marrow Transplant + Intensive Care";
-      }
+      treatment = formData.stage <= 2 ? "Targeted Therapy + Monitoring"
+                : formData.stage <= 4 ? "Chemotherapy + Immunotherapy"
+                : "Bone Marrow Transplant + Intensive Care";
       break;
 
     default:
@@ -57,18 +41,23 @@ document.getElementById("mainForm").addEventListener("submit", function(event) {
 
   if (formData.age < 18) {
     treatment += " (Pediatric oncology recommended)";
-  } else if (formData.age >= 18 && formData.age <= 40) {
+  } else if (formData.age <= 40) {
     treatment += " (Consider fertility preservation)";
-  } else if (formData.age > 40 && formData.age <= 65) {
+  } else if (formData.age <= 65) {
     treatment += " (Standard protocols apply)";
   } else {
     treatment += " (Geriatric oncology consultation advised)";
   }
 
+  const symptoms = getSymptomsByType(formData.cancerType);
   const hospitals = getTNHospitalsByType(formData.cancerType);
+
+  const symptomList = symptoms.map(s => `<li>${s}</li>`).join("");
   const hospitalList = hospitals.map(h => `<li>${h}</li>`).join("");
 
   document.getElementById("results").innerHTML = `
+    <h3>Common Symptoms:</h3>
+    <ul>${symptomList}</ul>
     <h3>Treatment Suggestion:</h3>
     <p>${treatment}</p>
     <h3>Recommended Hospitals in Tamil Nadu:</h3>
