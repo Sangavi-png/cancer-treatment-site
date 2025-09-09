@@ -10,6 +10,7 @@ document.getElementById("mainForm").addEventListener("submit", function(event) {
 
   let treatment = "";
 
+  // ✅ Updated treatment logic for stage 1–6
   switch (formData.cancerType) {
     case "breast":
       if (formData.stage <= 2) {
@@ -55,7 +56,7 @@ document.getElementById("mainForm").addEventListener("submit", function(event) {
       treatment = "Consult an oncologist for a personalized treatment plan.";
   }
 
-  // Age-based adjustment
+  // ✅ Age-based adjustment
   if (formData.age < 18) {
     treatment += " (Pediatric oncology recommended)";
   } else if (formData.age >= 18 && formData.age <= 40) {
@@ -66,19 +67,15 @@ document.getElementById("mainForm").addEventListener("submit", function(event) {
     treatment += " (Geriatric oncology consultation advised)";
   }
 
+  // ✅ Use Tamil Nadu hospitals only
   const hospitals = getTNHospitalsByType(formData.cancerType);
   const hospitalList = hospitals.map(h => `<li>${h}</li>`).join("");
 
+  // ✅ Display results
   document.getElementById("results").innerHTML = `
-    <h3>Entered Symptoms:</h3>
-    <p>${formData.symptoms}</p>
     <h3>Treatment Suggestion:</h3>
     <p>${treatment}</p>
     <h3>Recommended Hospitals in Tamil Nadu:</h3>
     <ul>${hospitalList}</ul>
-    document.getElementById("mainForm").addEventListener("submit", function(event) {
-  event.preventDefault();
-  console.log("Form submitted"); // ← this should appear in your browser console
-});
   `;
 });
