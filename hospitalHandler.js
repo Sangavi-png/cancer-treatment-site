@@ -1,10 +1,10 @@
-function getHospitalsByType(type) {
+function getTNHospitalsByType(type) {
   const hospitalData = {
-    breast: ["Tata Memorial Hospital, Mumbai", "AIIMS, Delhi"],
-    lung: ["Apollo Hospitals, Chennai", "Fortis Memorial, Gurgaon"],
-    colon: ["CMC Vellore", "Max Super Specialty, Delhi"],
-    leukemia: ["Narayana Health, Bangalore", "Kokilaben Hospital, Mumbai"]
+    breast: ["Adyar Cancer Institute, Chennai", "GKNM Hospital, Coimbatore"],
+    lung: ["Apollo Specialty Hospital, Chennai", "KMCH, Coimbatore"],
+    colon: ["PSG Hospitals, Coimbatore", "Madurai Government Rajaji Hospital"],
+    leukemia: ["Sri Ramachandra Medical Centre, Chennai", "CMC Vellore"]
   };
 
-  return hospitalData[type] || ["General Oncology Center"];
+  return hospitalData[type] || ["General Oncology Center, Tamil Nadu"];
 }
