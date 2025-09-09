@@ -12,59 +12,43 @@ document.getElementById("mainForm").addEventListener("submit", function(event) {
 
   switch (formData.cancerType) {
     case "breast":
-      if (formData.stage === 0) {
-        treatment = "Monitoring or localized surgery (carcinoma in situ)";
-      } else if (formData.stage === 1) {
-        treatment = "Lumpectomy + Hormone Therapy";
-      } else if (formData.stage === 2) {
-        treatment = "Mastectomy + Chemotherapy";
-      } else if (formData.stage === 3) {
-        treatment = "Chemotherapy + Radiation + Targeted Therapy";
-      } else {
-        treatment = "Advanced Chemotherapy + Palliative Care";
-      }
+      treatment = [
+        "Monitoring or localized surgery (carcinoma in situ)",
+        "Lumpectomy + Hormone Therapy",
+        "Mastectomy + Chemotherapy",
+        "Chemotherapy + Radiation + Targeted Therapy",
+        "Palliative Chemotherapy + Hormone or Targeted Therapy"
+      ][formData.stage];
       break;
 
     case "lung":
-      if (formData.stage === 0) {
-        treatment = "Observation or biopsy (pre-invasive)";
-      } else if (formData.stage === 1) {
-        treatment = "Surgery + Radiation";
-      } else if (formData.stage === 2) {
-        treatment = "Chemotherapy + Immunotherapy";
-      } else if (formData.stage === 3) {
-        treatment = "Combined modality treatment";
-      } else {
-        treatment = "Palliative Care + Targeted Therapy";
-      }
+      treatment = [
+        "Observation or biopsy (pre-invasive)",
+        "Surgery + Radiation",
+        "Chemotherapy + Immunotherapy",
+        "Combined modality treatment",
+        "Targeted Therapy + Palliative Care"
+      ][formData.stage];
       break;
 
     case "colon":
-      if (formData.stage === 0) {
-        treatment = "Polyp removal + Monitoring";
-      } else if (formData.stage === 1) {
-        treatment = "Surgery + Follow-up";
-      } else if (formData.stage === 2) {
-        treatment = "Surgery + Chemotherapy";
-      } else if (formData.stage === 3) {
-        treatment = "Chemotherapy + Radiation";
-      } else {
-        treatment = "Advanced Chemotherapy + Supportive Care";
-      }
+      treatment = [
+        "Polyp removal + Monitoring",
+        "Surgery + Follow-up",
+        "Surgery + Chemotherapy",
+        "Chemotherapy + Radiation",
+        "Advanced Chemotherapy + Supportive Care"
+      ][formData.stage];
       break;
 
     case "leukemia":
-      if (formData.stage === 0) {
-        treatment = "Monitoring (early detection)";
-      } else if (formData.stage === 1) {
-        treatment = "Targeted Therapy";
-      } else if (formData.stage === 2) {
-        treatment = "Chemotherapy";
-      } else if (formData.stage === 3) {
-        treatment = "Chemotherapy + Immunotherapy";
-      } else {
-        treatment = "Bone Marrow Transplant + Intensive Care";
-      }
+      treatment = [
+        "Monitoring (early detection)",
+        "Targeted Therapy",
+        "Chemotherapy",
+        "Chemotherapy + Immunotherapy",
+        "Bone Marrow Transplant + Intensive Care"
+      ][formData.stage];
       break;
 
     default:
