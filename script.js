@@ -76,5 +76,9 @@ document.getElementById("mainForm").addEventListener("submit", function(event) {
     <p>${treatment}</p>
     <h3>Recommended Hospitals in Tamil Nadu:</h3>
     <ul>${hospitalList}</ul>
+    document.getElementById("mainForm").addEventListener("submit", function(event) {
+  event.preventDefault();
+  console.log("Form submitted"); // ← this should appear in your browser console
+});
   `;
 });
